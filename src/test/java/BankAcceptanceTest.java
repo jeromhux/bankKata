@@ -7,15 +7,25 @@ import static org.mockito.Mockito.verify;
 
 public class BankAcceptanceTest {
 
-    private CashMachine cashMachine = mock(CashMachine.class);
     private Account account = mock(Account.class);
+    private CashMachine cashMachine = CashMachine.connexion(account);
+    private OperationTime operationTime = mock(OperationTime.class);
 
     @Test
     public void deposit_add_amount_on_client_account() {
         Amount amount = new Amount(new BigDecimal(1000.0));
 
-        cashMachine.deposit(amount, account);
+        cashMachine.deposit(amount, operationTime);
 
         verify(account).add(amount);
+    }
+
+    @Test
+    public void withdrawal_subtract_amount_on_client_account() {
+        Amount amount = new Amount(new BigDecimal(1000.0));
+
+        cashMachine.withdrawal(amount, operationTime);
+
+        verify(account).subtract(amount);
     }
 }

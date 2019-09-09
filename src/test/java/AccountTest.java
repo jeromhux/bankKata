@@ -28,6 +28,17 @@ public class AccountTest {
         assertEquals(expectedBalance, actual);
     }
 
+    @Test
+    public void balance_should_decrease_when_withdrawal() {
+        Account account = new Account();
+        Amount expectedBalance = amountOf(1000);
+        account.add(amountOf(1200));
+        account.subtract(amountOf(200));
+
+        Amount actual = account.checkBalance();
+
+        assertEquals(expectedBalance, actual);
+    }
 
     private Amount amountOf(int val) {
         return new Amount(new BigDecimal(val));

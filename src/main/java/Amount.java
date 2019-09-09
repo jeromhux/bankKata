@@ -20,6 +20,10 @@ public class Amount {
         return new Amount(value.add(otherAmount.getValue()));
     }
 
+    public Amount deduction(Amount otherAmount) {
+        return new Amount(value.subtract(otherAmount.getValue()));
+    }
+
     @Override
     public String toString() {
         return "" + value;
@@ -39,4 +43,6 @@ public class Amount {
     public int hashCode() {
         return value != null ? value.hashCode() : 0;
     }
+
+
 }

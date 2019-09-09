@@ -13,4 +13,8 @@ public class Account {
     public void add(Amount amount) {
         balance = balance.sum(amount);
     }
+
+    public void subtract(Amount amount) {
+        balance = balance.deduction(amount);
+    }
 }
