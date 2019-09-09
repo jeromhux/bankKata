@@ -19,5 +19,6 @@ public class Account {
 
     public void subtract(Amount amount, OperationTime operationTime) {
         balance = balance.deduction(amount);
+        history.saveWithdrawal(amount, operationTime);
     }
 }

@@ -20,4 +20,13 @@ public class HistoryAcceptanceTest {
         verify(history).saveDeposit(depositAmount, operationTime);
     }
 
+    @Test
+    public void withdrawal_are_added_to_history() {
+        Amount withdrawalAmount = new Amount(new BigDecimal(200));
+
+        account.subtract(withdrawalAmount, operationTime);
+
+        verify(history).saveWithdrawal(withdrawalAmount, operationTime);
+    }
+
 }

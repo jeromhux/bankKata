@@ -14,6 +14,10 @@ public class History {
         operations.add(Operation.of("DEPOSIT", depositAmount, operationTime));
     }
 
+    public void saveWithdrawal(Amount withdrawalAmount, OperationTime operationTime) {
+        operations.add(Operation.of("WITHDRAWAL", withdrawalAmount, operationTime));
+    }
+
     public List<Operation> latestOperations() {
         return operations;
     }
