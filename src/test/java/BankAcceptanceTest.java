@@ -1,5 +1,7 @@
 import org.junit.Test;
 
+import java.math.BigDecimal;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -10,7 +12,7 @@ public class BankAcceptanceTest {
 
     @Test
     public void deposit_add_amount_on_client_account() {
-        Amount amount = new Amount(1000.0);
+        Amount amount = new Amount(new BigDecimal(1000.0));
 
         cashMachine.deposit(amount, account);
 
