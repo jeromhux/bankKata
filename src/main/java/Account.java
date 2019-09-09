@@ -1,8 +1,10 @@
 public class Account {
 
+    private History history;
     private Amount balance;
 
-    public Account() {
+    public Account(History history) {
+        this.history = history;
         this.balance = Amount.zero();
     }
 
@@ -10,11 +12,12 @@ public class Account {
         return balance;
     }
 
-    public void add(Amount amount) {
+    public void add(Amount amount, OperationTime operationTime) {
         balance = balance.sum(amount);
+        history.saveDeposit(amount, operationTime);
     }
 
-    public void subtract(Amount amount) {
+    public void subtract(Amount amount, OperationTime operationTime) {
         balance = balance.deduction(amount);
     }
 }

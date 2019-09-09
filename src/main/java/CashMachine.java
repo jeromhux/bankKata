@@ -11,10 +11,10 @@ public class CashMachine {
     }
 
     public void deposit(Amount amount, OperationTime operationTime) {
-        account.add(amount);
+        account.add(amount, operationTime);
     }
 
     public void withdrawal(Amount amount, OperationTime operationTime) {
-        account.subtract(amount);
+        account.subtract(amount, operationTime);
     }
 }

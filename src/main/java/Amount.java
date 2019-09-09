@@ -15,6 +15,10 @@ public class Amount {
         return new Amount(new BigDecimal(0));
     }
 
+    public static Amount of(double val) {
+        return new Amount(new BigDecimal(val));
+    }
+
 
     public Amount sum(Amount otherAmount) {
         return new Amount(value.add(otherAmount.getValue()));
